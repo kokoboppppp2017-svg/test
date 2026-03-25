@@ -3,283 +3,322 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 수정 필요: 브라우저 탭에 표시될 제목입니다. -->
-    <title>쇼호스트 [이름] 포트폴리오</title>
-    <style>
-        /* 기본 스타일 */
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1, h2, h3 {
-            color: #222;
-        }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 0;
-        }
-        h2 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 40px;
-        }
-        section {
-            margin-bottom: 40px;
-        }
-        a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>쇼호스트 포트폴리오</title>
+<style>
+  /* 모바일 우선 기본 스타일 */
+  :root{
+    --text:#222;
+    --muted:#666;
+    --accent:#7aa2ff;
+    --bg1:#f7f6ff; /* pastel base */
+    --bg2:#fffaf6; /* alternate pastel */
+    --card:#ffffff;
+    --radius:12px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR","Apple SD Gothic Neo",Arial;
+    color:var(--text);
+    background: linear-gradient(180deg,var(--bg1),var(--bg2));
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+  }
+  a{color:var(--accent); text-decoration:none}
+  .container{padding:16px; max-width:1100px; margin:0 auto}
 
-        /* 헤더 & 이미지 슬라이더 */
-        header {
-            text-align: center;
-            padding: 40px 0;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
-        }
-        header h1 {
-            color: white;
-        }
-        .header-title {
-            font-size: 1.5em;
-            font-weight: 300;
-            margin-top: 10px;
-        }
-        .slider-container {
-            width: 100%;
-            max-width: 800px;
-            height: 400px; /* 슬라이더 높이 조절 */
-            position: relative;
-            overflow: hidden;
-            margin: 20px auto 0;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        .slider-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* 이미지가 잘리지 않고 꽉 차게 */
-            position: absolute;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .slider-image.active {
-            opacity: 1;
-        }
+  /* Header */
+  header{
+    padding:18px 16px 8px;
+    text-align:center;
+  }
+  .name{
+    font-size:1.6rem;
+    font-weight:700;
+    margin:0;
+    letter-spacing:-0.02em;
+  }
+  .tagline{
+    margin-top:6px;
+    font-size:0.98rem;
+    color:var(--muted);
+  }
 
-        /* 경력 */
-        .career-list {
-            list-style: none;
-            padding: 0;
-        }
-        .career-list li {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            border-left: 3px solid #007BFF;
-        }
-        .career-list strong {
-            display: block;
-            font-size: 1.1em;
-        }
+  /* 이미지 슬라이더 (간단 자동재생) */
+  .slider{
+    margin:14px auto;
+    width:100%;
+    max-width:900px;
+    height:260px;
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(20,20,30,0.06);
+    position:relative;
+    background:linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+  }
+  .slide-img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity .9s ease;
+  }
+  .slide-img.active{opacity:1}
 
-        /* 레퍼런스 영상 */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 비율 */
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-            margin-bottom: 20px;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        /* SNS 링크 */
-        .social-links {
-            text-align: center;
-            padding: 20px 0;
-        }
-        .social-links a {
-            margin: 0 15px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
+  /* 섹션 기본 */
+  section{margin-top:18px}
+  h2{font-size:1.05rem; margin:0 0 10px 0}
+  p{margin:0 0 10px 0}
 
-        /* 갤러리 */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        .gallery-grid img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        .gallery-grid img:hover {
-            transform: scale(1.05);
-        }
+  /* About 카드 */
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:14px;
+    box-shadow:0 6px 18px rgba(15,20,30,0.04);
+  }
 
-        /* 연락처 */
-        .contact {
-            text-align: center;
-            background-color: #333;
-            color: white;
-            padding: 40px 20px;
-        }
-        .contact h2 {
-            color: white;
-            border: none;
-        }
-        .contact a {
-            color: #fff;
-            font-size: 1.2em;
-            font-weight: bold;
-            border: 2px solid white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .contact a:hover {
-            background-color: white;
-            color: #333;
-            text-decoration: none;
-        }
-    </style>
+  /* Career list */
+  .career-list{padding:0; margin:0; list-style:none}
+  .career-item{padding:10px 0; border-left:3px solid rgba(122,162,255,0.25); margin-left:8px}
+  .career-item strong{display:block; font-weight:600}
+
+  /* Reference videos: 모바일 우선: 가로 스크롤 컨테이너 (2개 visible) */
+  .videos-viewport{
+    width:100%;
+    overflow:hidden;
+  }
+  .videos-row{
+    display:flex;
+    gap:12px;
+    padding:8px 6px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .video-card{
+    flex:0 0 calc(50% - 12px); /* 모바일에서 한 화면에 2개 */
+    scroll-snap-align:center;
+    background:var(--card);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(15,20,30,0.04);
+  }
+  .video-card .video-wrap{
+    position:relative;
+    width:100%;
+    /* 세로형 영상에 맞춘 높이: 16:9보다 더 세로형을 위한 기본 */
+    padding-top:160%; /* 세로 비디오(예: 9:16)을 가정해 높게 잡음 */
+    background:#000;
+  }
+  .video-card iframe{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    border:0;
+  }
+  .videos-controls{
+    display:flex; justify-content:flex-end; gap:8px; margin-top:8px;
+  }
+
+  /* Gallery - 좀 더 생동감 있게 카드형 그리드 */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+  .gallery-item{
+    background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(250,250,255,1));
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(15,20,30,0.04);
+  }
+  .gallery-item img{
+    width:100%; height:220px; object-fit:cover; display:block;
+    transition:transform .35s ease;
+  }
+  .gallery-item:hover img{transform:scale(1.04)}
+
+  /* Contact footer */
+  .contact{
+    margin-top:18px;
+    padding:18px;
+    border-radius:12px;
+    background:linear-gradient(90deg,#fff,#fafcff);
+    text-align:center;
+  }
+  .contact a{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 16px;
+    border-radius:8px;
+    background:var(--accent); color:#fff; font-weight:600;
+  }
+
+  /* Desktop / larger screens */
+  @media(min-width:900px){
+    header{padding:28px 0}
+    .name{font-size:2.2rem}
+    .tagline{font-size:1.05rem}
+    .slider{height:380px}
+    .card{padding:20px}
+
+    /* Videos: desktop shows 4 at once in a grid */
+    .videos-row{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      overflow:visible;
+      padding:0;
+    }
+    .video-card{flex:1; padding:0}
+    .video-card .video-wrap{padding-top:150%} /* 데스크탑에서 세로비디오 비율 조정 가능 */
+
+    /* gallery: 3 or 4 column */
+    .gallery-grid{grid-template-columns:repeat(3,1fr); gap:14px}
+    .gallery-item img{height:160px}
+  }
+
+  @media(min-width:1200px){
+    .slider{height:440px}
+    .gallery-grid{grid-template-columns:repeat(4,1fr)}
+    .gallery-item img{height:180px}
+  }
+
+  /* small polish: hide scrollbars for iOS/Android nicer look */
+  .videos-row::-webkit-scrollbar{height:8px}
+  .videos-row::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.12); border-radius:8px}
+</style>
 </head>
 <body>
-
+  <div class="container">
     <header>
-        <!-- 수정 필요: 당신의 이름 -->
-        <h1>김쇼호</h1>
-        <!-- 수정 필요: 당신을 나타내는 멋진 타이틀 또는 캐치프레이즈 -->
-        <p class="header-title">"단 1분 만에 시청자의 마음을 훔치는 마법사"</p>
-        
-        <div class="slider-container">
-            <!-- 수정 필요: images 폴더에 있는 당신의 사진 파일명으로 변경 (총 3장) -->
-            <img src="https://via.placeholder.com/800x400/007BFF/FFFFFF?text=Profile+Image+1" class="slider-image active" alt="프로필 사진 1">
-            <img src="https://via.placeholder.com/800x400/28A745/FFFFFF?text=Profile+Image+2" class="slider-image" alt="프로필 사진 2">
-            <img src="https://via.placeholder.com/800x400/DC3545/FFFFFF?text=Profile+Image+3" class="slider-image" alt="프로필 사진 3">
-        </div>
+      <!-- 수정: 이름 -->
+      <h1 class="name">김쇼호</h1>
+      <!-- 수정: 캐치프레이즈 -->
+      <div class="tagline">"1분 만에 마음을 사로잡는 라이브 커머스 크리에이터"</div>
+
+      <div class="slider" aria-hidden="false">
+        <!-- 교체: 실제 프로필 이미지 URL 또는 로컬 경로로 바꾸세요 -->
+        <img class="slide-img active" src="https://via.placeholder.com/1200x800/ffd6e8/30203a?text=Profile+1" alt="프로필1">
+        <img class="slide-img" src="https://via.placeholder.com/1200x800/d6f6ff/30203a?text=Profile+2" alt="프로필2">
+        <img class="slide-img" src="https://via.placeholder.com/1200x800/e9ffd6/30203a?text=Profile+3" alt="프로필3">
+      </div>
     </header>
 
-    <main class="container">
-        <section id="about">
-            <h2>About Me: 저를 소개합니다</h2>
-            <!-- 수정 필요: 자신을 소개하는 글을 자유롭게 작성하세요. -->
-            <p>
-                안녕하세요! 시청자와의 완벽한 케미스트리를 자랑하는 쇼호스트 김쇼호입니다. 
-                저는 단순히 제품을 판매하는 것을 넘어, 시청자와 함께 웃고 공감하며 즐거운 쇼핑 경험을 만드는 일에 가장 큰 보람을 느낍니다. 
-                저의 긍정적인 에너지와 신뢰감 있는 목소리로 최고의 결과를 만들어내겠습니다.
-            </p>
-            <h3>성과 및 하이라이트</h3>
-            <ul>
-                <!-- 수정 필요: 당신의 주요 성과를 목록으로 작성하세요. -->
-                <li>2025년 OOO 홈쇼핑 뷰티 카테고리 매출 1위 달성</li>
-                <li>유튜브 라이브 커머스 동시 접속자 1만 명 기록</li>
-                <li>2024년 대한민국 커머스 대상 '라이징 스타상' 수상</li>
-            </ul>
-        </section>
+    <main>
+      <section id="about" class="card">
+        <h2>About Me</h2>
+        <p>안녕하세요! 시청자 공감형 쇼호스트 김쇼호입니다. 밝은 에너지와 설득력 있는 스토리텔링으로 판매 전환을 만듭니다.</p>
+        <h3 style="margin-top:10px; font-size:0.95rem">Highlights</h3>
+        <ul style="padding-left:18px; margin:8px 0 0 0; color:var(--muted)">
+          <li>2025 OOO 홈쇼핑 뷰티 카테고리 매출 1위</li>
+          <li>유튜브 라이브 최고 동시접속 1만명</li>
+          <li>2024 대한민국 커머스 대상 수상</li>
+        </ul>
+      </section>
 
-        <section id="career">
-            <h2>Career: 걸어온 길</h2>
-            <ul class="career-list">
-                <!-- 수정 필요: 당신의 경력을 최신순으로 작성하세요. 이 항목을 복사해서 여러 개 추가할 수 있습니다. -->
-                <li>
-                    <strong>2023 - 현재: OOO 홈쇼핑</strong>
-                    패션/뷰티 전문 쇼호스트
-                </li>
-                <li>
-                    <strong>2021 - 2023: ABC 라이브 커머스</strong>
-                    IT/가전 전문 쇼호스트
-                </li>
-                <li>
-                    <strong>2020: 쇼호스트 아카데미</strong>
-                    전문가 과정 수료
-                </li>
-            </ul>
-        </section>
+      <section id="career" style="margin-top:12px">
+        <h2>Career</h2>
+        <div class="card">
+          <ul class="career-list">
+            <li class="career-item"><strong>2023 - 현재: OOO 홈쇼핑</strong> 패션/뷰티 전문 쇼호스트</li>
+            <li class="career-item"><strong>2021 - 2023: ABC 라이브</strong> IT/가전 라이브 진행</li>
+            <li class="career-item"><strong>2020: 쇼호스트 아카데미</strong> 전문가 과정 수료</li>
+          </ul>
+        </div>
+      </section>
 
-        <section id="videos">
-            <h2>Reference Videos: 레퍼런스 영상</h2>
-            <!-- 수정 필요: 유튜브 영상의 '공유' -> '퍼가기'에서 src="..." 부분만 복사하여 아래에 붙여넣으세요. -->
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <section id="videos" style="margin-top:12px">
+        <h2>Reference Videos</h2>
+        <div class="videos-viewport">
+          <div class="videos-row" id="videosRow">
+            <!-- 수정: 유튜브 세로(포트레이트) 영상 4개. iframe src를 자신의 영상으로 교체하세요. -->
+            <div class="video-card">
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_1?rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
             </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-card">
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_2?rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
             </div>
-        </section>
+            <div class="video-card">
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_3?rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+            </div>
+            <div class="video-card">
+              <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_4?rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section id="social">
-            <h2>Social Links: 저를 더 알아보세요</h2>
-            <div class="social-links">
-                <!-- 수정 필요: 당신의 유튜브, 인스타그램 등 SNS 주소로 변경하세요. -->
-                <a href="https://www.youtube.com" target="_blank">YouTube</a>
-                <a href="https://www.instagram.com" target="_blank">Instagram</a>
-            </div>
-        </section>
+      <section id="social" style="margin-top:12px">
+        <h2>Social</h2>
+        <div class="card" style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap">
+          <!-- 수정: 링크 교체 -->
+          <a href="https://www.youtube.com" target="_blank" style="padding:8px 12px; border-radius:8px; background:#fff;">YouTube</a>
+          <a href="https://www.instagram.com" target="_blank" style="padding:8px 12px; border-radius:8px; background:#fff;">Instagram</a>
+        </div>
+      </section>
 
-        <section id="gallery">
-            <h2>Gallery: 생생한 활동 모습</h2>
-            <div class="gallery-grid">
-                <!-- 수정 필요: images 폴더에 있는 당신의 활동 사진 파일명으로 변경하세요. 원하는 만큼 img 태그를 추가/삭제할 수 있습니다. -->
-                <img src="https://via.placeholder.com/300x300/6f42c1/ffffff?text=Activity+1" alt="활동 사진 1">
-                <img src="https://via.placeholder.com/300x300/fd7e14/ffffff?text=Activity+2" alt="활동 사진 2">
-                <img src="https://via.placeholder.com/300x300/20c997/ffffff?text=Activity+3" alt="활동 사진 3">
-                <img src="https://via.placeholder.com/300x300/e83e8c/ffffff?text=Activity+4" alt="활동 사진 4">
-                <img src="https://via.placeholder.com/300x300/17a2b8/ffffff?text=Activity+5" alt="활동 사진 5">
-                <img src="https://via.placeholder.com/300x300/ffc107/ffffff?text=Activity+6" alt="활동 사진 6">
-            </div>
-        </section>
+      <section id="gallery" style="margin-top:12px">
+        <h2>Gallery</h2>
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- 수정: 실제 활동 사진으로 교체 -->
+          <div class="gallery-item"><img src="https://via.placeholder.com/800x600/ffd6e8/222?text=Activity+1" alt=""></div>
+          <div class="gallery-item"><img src="https://via.placeholder.com/800x600/d6f6ff/222?text=Activity+2" alt=""></div>
+          <div class="gallery-item"><img src="https://via.placeholder.com/800x600/e9ffd6/222?text=Activity+3" alt=""></div>
+          <div class="gallery-item"><img src="https://via.placeholder.com/800x600/fff1d6/222?text=Activity+4" alt=""></div>
+          <div class="gallery-item"><img src="https://via.placeholder.com/800x600/f0e6ff/222?text=Activity+5" alt=""></div>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:14px">
+        <div class="contact">
+          <h2>Contact Me</h2>
+          <p style="color:var(--muted)">함께 일해보고 싶으시면 편하게 연락주세요.</p>
+          <!-- 수정: 메일 주소 교체 -->
+          <a href="mailto:youremail@example.com">이메일 보내기</a>
+        </div>
+      </section>
     </main>
+  </div>
 
-    <footer class="contact" id="contact">
-        <h2>Contact Me</h2>
-        <p>함께 최고의 결과를 만들고 싶으시다면, 아래 버튼을 눌러 저에게 연락주세요.</p>
-        <!-- 수정 필요: 당신의 이메일 주소로 변경하세요. -->
-        <a href="mailto:youremail@example.com">이메일 보내기</a>
-    </footer>
+<script>
+  // 이미지 슬라이더 (간단)
+  (function(){
+    const imgs = document.querySelectorAll('.slide-img');
+    let idx = 0;
+    if(!imgs.length) return;
+    setInterval(()=>{
+      imgs[idx].classList.remove('active');
+      idx = (idx+1)%imgs.length;
+      imgs[idx].classList.add('active');
+    }, 3500);
+  })();
 
-    <script>
-        // 이미지 슬라이더 로직
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('.slider-image');
-            let currentImageIndex = 0;
-
-            function showNextImage() {
-                images[currentImageIndex].classList.remove('active');
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-                images[currentImageIndex].classList.add('active');
-            }
-
-            setInterval(showNextImage, 3000); // 3초마다 이미지 변경
-        });
-    </script>
-
+  // 가로 스크롤에서 터치/드래그로 깔끔하게 스와이프 되게끔(선택적)
+  (function(){
+    const slider = document.getElementById('videosRow');
+    if(!slider) return;
+    let pos = {startX:0, scrollLeft:0, isDown:false};
+    slider.addEventListener('pointerdown', (e)=>{
+      pos.isDown=true;
+      pos.startX = e.clientX;
+      pos.scrollLeft = slider.scrollLeft;
+      slider.style.cursor='grabbing';
+    });
+    slider.addEventListener('pointerup', ()=>{ pos.isDown=false; slider.style.cursor=''; });
+    slider.addEventListener('pointerleave', ()=>{ pos.isDown=false; slider.style.cursor=''; });
+    slider.addEventListener('pointermove', (e)=>{
+      if(!pos.isDown) return;
+      const dx = e.clientX - pos.startX;
+      slider.scrollLeft = pos.scrollLeft - dx;
+    });
+  })();
+</script>
 </body>
 </html>
