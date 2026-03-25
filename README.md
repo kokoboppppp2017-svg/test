@@ -10,6 +10,7 @@
         :root {
             --bg: #f8f9fc; --accent: #2763d6; --accent-light: #eef5ff; --text: #0f172a; --muted: #6b7280;
             --card: #fff; --radius: 12px; --shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+            --kakao-yellow: #FEE500;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -57,12 +58,14 @@
             0%, 45% { transform: translateX(0%); } 50%, 95% { transform: translateX(-50%); } 100% { transform: translateX(0%); }
         }
 
-        /* --- 2. 나의 강점 (Strengths) --- */
-        .section-subtitle { text-align: center; color: var(--muted); margin-top: -8px; margin-bottom: 24px; font-size: 15px; }
-        .strengths-grid { display: grid; gap: 12px; }
-        .strength-card { background: var(--card); padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; }
-        .strength-card h3 { font-size: 16px; margin-bottom: 6px; }
-        .strength-card p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+        /* --- 2. 나의 강점 (Strengths) - NEW DESIGN --- */
+        .section-subtitle { text-align: center; color: var(--muted); margin-top: -8px; margin-bottom: 24px; font-size: 15px; max-width: 500px; margin-left: auto; margin-right: auto;}
+        .strength-list { max-width: 500px; margin: 24px auto 0; }
+        .strength-item { display: flex; gap: 20px; text-align: left; margin-bottom: 32px; }
+        .strength-icon { flex-shrink: 0; width: 40px; height: 40px; background: var(--accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent); }
+        .strength-icon svg { width: 22px; height: 22px; }
+        .strength-item h3 { font-size: 17px; margin-bottom: 4px; font-weight: 700; }
+        .strength-item p { font-size: 15px; color: var(--muted); line-height: 1.6; }
 
         /* --- 3. 주요 성과 및 경력 --- */
         .career-grid { display: grid; gap: 24px; }
@@ -86,30 +89,17 @@
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
         
         /* --- 6. 연락처 (Contact) --- */
-        .contact-card {
-            background: var(--card);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
+        .contact-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; display: flex; flex-direction: column; gap: 24px; }
         .contact-main-title { font-size: 18px; font-weight: 800; }
         .contact-main-sub { font-size: 14px; color: var(--muted); margin-top: 4px; }
         .contact-button {
             display: block; width: 100%; padding: 14px;
-            background: var(--accent); color: white;
+            background: var(--kakao-yellow); color: #191919;
             text-align: center; text-decoration: none;
             font-weight: 700; border-radius: 8px;
         }
         .email-link { display: block; text-align: center; color: var(--muted); font-size: 14px; font-weight: 600; text-decoration: none; margin-top: 12px; }
-        .sns-links a {
-            display: flex; align-items: center; gap: 12px;
-            background: var(--accent-light); padding: 12px;
-            border-radius: 8px; text-decoration: none; color: var(--text);
-            margin-bottom: 10px;
-        }
+        .sns-links a { display: flex; align-items: center; gap: 12px; background: var(--accent-light); padding: 12px; border-radius: 8px; text-decoration: none; color: var(--text); margin-bottom: 10px; }
         .sns-links svg { width: 24px; height: 24px; }
         .sns-text-box strong { display: block; font-size: 15px; font-weight: 700; }
         .sns-text-box span { font-size: 13px; color: var(--muted); }
@@ -123,7 +113,6 @@
             .badges { justify-content: flex-start; }
             .slider-container { width: 100%; max-width: 300px; }
             .hero-title { font-size: 2.8rem; }
-            .strengths-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
             .career-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
             .videos-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; overflow-x: visible; }
             .vcard { flex-basis: auto; }
@@ -174,10 +163,19 @@
     <section id="strengths" class="container">
         <h2>저는 이런 점이 다릅니다</h2>
         <p class="section-subtitle">단순한 진행을 넘어, 방송의 성공을 위해 이 3가지를 약속합니다.</p>
-        <div class="strengths-grid">
-            <div class="strength-card"><h3>높은 구매 전환율</h3><p>평균 구매 전환율 15% 이상 달성 경험 다수. 시청자의 구매 심리를 자극하는 스피치에 자신 있습니다.</p></div>
-            <div class="strength-card"><h3>꼼꼼한 상품 분석</h3><p>방송 전 상품 스터디는 기본. 직접 사용하며 장단점을 파악하고, 고객의 입장에서 궁금할 점을 먼저 해결합니다.</p></div>
-            <div class="strength-card"><h3>기획/연출 역량</h3><p>단순 진행을 넘어, 방송 컨셉 기획과 현장 연출에 적극적으로 참여하여 완성도 높은 콘텐츠를 만듭니다.</p></div>
+        <div class="strength-list">
+            <div class="strength-item">
+                <div class="strength-icon"><svg fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-2 4a1 1 0 00.894 1.447h4a1 1 0 00.894-1.447l-2-4zM14 10a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zM6 10a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zM2 10a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zM18 10a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1z"></path></svg></div>
+                <div><h3>높은 구매 전환율</h3><p>평균 구매 전환율 15% 이상 달성 경험 다수. 시청자의 구매 심리를 자극하는 스피치에 자신 있습니다.</p></div>
+            </div>
+            <div class="strength-item">
+                <div class="strength-icon"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg></div>
+                <div><h3>꼼꼼한 상품 분석</h3><p>방송 전 상품 스터디는 기본. 직접 사용하며 장단점을 파악하고, 고객의 입장에서 궁금할 점을 먼저 해결합니다.</p></div>
+            </div>
+            <div class="strength-item">
+                <div class="strength-icon"><svg fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path></svg></div>
+                <div><h3>기획/연출 역량</h3><p>단순 진행을 넘어, 방송 컨셉 기획과 현장 연출에 적극적으로 참여하여 완성도 높은 콘텐츠를 만듭니다.</p></div>
+            </div>
         </div>
     </section>
 
