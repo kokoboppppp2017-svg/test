@@ -534,11 +534,6 @@
         aspect-ratio: 4/3;
     }
 }
-/* 마지막 아이템 모바일에서 꽉 채우기 */
-.gallery-item:last-child {
-    grid-column: 1 / -1;
-    aspect-ratio: 4/3;
-}
         /* ===========================
            CONTACT  (완전 새 디자인)
         =========================== */
