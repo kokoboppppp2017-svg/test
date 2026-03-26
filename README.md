@@ -10,21 +10,19 @@
         /* ===========================
            ROOT & RESET
         =========================== */
-        :root {
-            --bg: #0a0a0f;
-            --bg2: #12121a;
-            --card: #1a1a26;
-            --card2: #22223a;
-            --accent: #7c5cfc;
-            --accent2: #c084fc;
-            --accent-glow: rgba(124, 92, 252, 0.25);
-            --text: #f0f0f8;
-            --muted: #8888aa;
-            --muted2: #555577;
-            --radius: 16px;
-            --radius-sm: 10px;
-            --kakao: #FEE500;
-        }
+       :root {
+    --bg-primary: #FAFAF8;
+    --bg-secondary: #F5F0EB;
+    --bg-card: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-secondary: #5A5A5A;
+    --text-muted: #9A9A9A;
+    --rose-gold: #C9956C;
+    --burgundy: #8B2E4A;
+    --accent: #D4A88A;
+    --border: #E8E0D8;
+    --shadow: rgba(139, 46, 74, 0.08);
+}
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -82,10 +80,10 @@
             position: sticky;
             top: 0;
             z-index: 200;
-            background: rgba(10, 10, 15, 0.85);
+            background: rgba(250, 250, 248, 0.92);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(139, 46, 74, 0.12);
         }
 
         .header-inner {
@@ -132,12 +130,12 @@
            HERO
         =========================== */
         .hero {
-            padding-top: 48px;
-            padding-bottom: 64px;
-            position: relative;
-            overflow: hidden;
-        }
-
+    padding-top: 48px;
+    padding-bottom: 64px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #FAFAF8 0%, #F5EDE6 50%, #F0E4DC 100%); /* 이 줄 추가 */
+}
         /* 배경 그라디언트 오브 */
         .hero::before {
             content: '';
@@ -147,10 +145,9 @@
             transform: translateX(-50%);
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(124,92,252,0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(201,149,108,0.12) 0%, transparent 70%);
             pointer-events: none;
         }
-
         .hero-inner {
             display: flex;
             flex-direction: column;
@@ -695,13 +692,14 @@
         /* ===========================
            FOOTER
         =========================== */
-        footer {
-            text-align: center;
-            padding: 24px 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            font-size: 12px;
-            color: var(--muted2);
-        }
+footer {
+    text-align: center;
+    padding: 24px 20px;
+    background: #F5F0EB;        /* ← 이 줄 추가! */
+    border-top: 1px solid rgba(139, 46, 74, 0.12);
+    font-size: 12px;
+    color: var(--muted2);
+}
 
 
         /* ===========================
