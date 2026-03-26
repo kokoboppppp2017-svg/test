@@ -444,16 +444,15 @@
         .videos-scroll::-webkit-scrollbar { display: none; }
 
         .vcard {
-            flex: 0 0 72vw;
-            max-width: 280px;
-            scroll-snap-align: start;
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: var(--card);
-            border: 1px solid rgba(255,255,255,0.06);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-        }
-
+    flex: 0 0 65vw;
+    max-width: 240px;    /* 280px → 240px */
+    scroll-snap-align: start;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
         /* 9:16 비율 (네이버 쇼핑라이브 세로형) */
         .video-frame {
             position: relative;
@@ -522,17 +521,17 @@
         .gallery-item:hover img { transform: scale(1.05); }
 
         /* 첫 번째 아이템을 크게 */
-        .gallery-item:first-child {
-            grid-column: 1 / -1;
-            aspect-ratio: 4/3;
-            /* 마지막 아이템 모바일에서 꽉 채우기 */
+   /* 첫 번째 아이템을 크게 */
+.gallery-item:first-child {
+    grid-column: 1 / -1;
+    aspect-ratio: 4/3;
+}
+
+/* 마지막 아이템 모바일에서 꽉 채우기 */
 .gallery-item:last-child {
     grid-column: 1 / -1;
     aspect-ratio: 4/3;
 }
-        }
-
-
         /* ===========================
            CONTACT  (완전 새 디자인)
         =========================== */
