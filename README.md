@@ -829,7 +829,7 @@ footer {
                     onerror="this.src='https://placehold.co/600x800/1a1a26/7c5cfc?text=Photo+1'"
                 >
                 <img
-                    src="profile2.jpg"
+                    src="profile3.jpg"
                     alt="프로필 사진 2"
                     onerror="this.src='https://placehold.co/600x800/1a1a26/c084fc?text=Photo+2'"
                 >
