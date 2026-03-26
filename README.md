@@ -25,9 +25,7 @@
             --shadow: rgba(139, 46, 74, 0.08);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
@@ -42,38 +40,45 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px 40px;
+            padding: 14px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(250, 250, 248, 0.85);
+            background: rgba(250, 250, 248, 0.90);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
 
+        /* ★ 로고 작게 한 줄로 */
         .logo {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--rose-gold), var(--burgundy));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
         }
 
         nav a {
             color: var(--text-secondary);
             text-decoration: none;
-            margin-left: 32px;
-            font-size: 0.9rem;
+            margin-left: 20px;
+            font-size: 0.82rem;
             font-weight: 500;
             transition: color 0.3s;
             letter-spacing: 0.03em;
+            white-space: nowrap;
         }
 
-        nav a:hover {
-            color: var(--burgundy);
-        }
+        nav a:hover { color: var(--burgundy); }
 
         /* ── HERO ── */
         .hero {
@@ -110,10 +115,7 @@
             left: -50px;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+        .hero-content { position: relative; z-index: 1; }
 
         .hero-badge {
             display: inline-block;
@@ -182,7 +184,6 @@
             text-decoration: none;
             transition: all 0.3s;
             box-shadow: 0 4px 20px rgba(139, 46, 74, 0.25);
-            letter-spacing: 0.03em;
         }
 
         .btn-primary:hover {
@@ -201,7 +202,6 @@
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s;
-            letter-spacing: 0.03em;
         }
 
         .btn-secondary:hover {
@@ -252,11 +252,13 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
-            align-items: center;
+            align-items: start;
         }
 
+        /* ★ 사진 비율 수정 - 3:4 세로 고정 */
         .about-image-placeholder {
-            aspect-ratio: 3/4;
+            width: 100%;
+            aspect-ratio: 3 / 4;
             border-radius: 24px;
             background: linear-gradient(160deg, var(--bg-secondary), #EDD8CC);
             display: flex;
@@ -265,15 +267,7 @@
             font-size: 4rem;
             border: 1px solid var(--border);
             box-shadow: 0 8px 40px var(--shadow);
-            position: relative;
             overflow: hidden;
-        }
-
-        .about-image-placeholder::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(160deg, rgba(201,149,108,0.1), rgba(139,46,74,0.05));
         }
 
         .about-text h3 {
@@ -311,7 +305,7 @@
         .numbers-section {
             background: linear-gradient(135deg, var(--bg-secondary), #EDD8CC);
             border-radius: 32px;
-            padding: 80px 60px;
+            padding: 60px 48px;
             max-width: 1100px;
             margin: 0 auto;
             border: 1px solid var(--border);
@@ -321,13 +315,13 @@
         .numbers-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-top: 50px;
+            gap: 20px;
+            margin-top: 40px;
         }
 
         .number-card {
             text-align: center;
-            padding: 32px 20px;
+            padding: 28px 16px;
             background: var(--bg-card);
             border-radius: 20px;
             border: 1px solid var(--border);
@@ -335,12 +329,10 @@
             transition: transform 0.3s;
         }
 
-        .number-card:hover {
-            transform: translateY(-4px);
-        }
+        .number-card:hover { transform: translateY(-4px); }
 
         .number-value {
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--rose-gold), var(--burgundy));
             -webkit-background-clip: text;
@@ -351,7 +343,7 @@
         }
 
         .number-label {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-secondary);
             font-weight: 500;
             line-height: 1.4;
@@ -361,14 +353,14 @@
         .career-list {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 20px;
         }
 
         .career-item {
             display: grid;
-            grid-template-columns: 140px 1fr;
-            gap: 32px;
-            padding: 32px;
+            grid-template-columns: 130px 1fr;
+            gap: 28px;
+            padding: 28px;
             background: var(--bg-card);
             border-radius: 20px;
             border: 1px solid var(--border);
@@ -383,7 +375,7 @@
         }
 
         .career-period {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: var(--rose-gold);
             font-weight: 600;
             letter-spacing: 0.05em;
@@ -391,35 +383,64 @@
         }
 
         .career-company {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .career-role {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: var(--rose-gold);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 500;
         }
 
         .career-desc {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
             line-height: 1.6;
         }
 
-        /* ── VIDEOS ── */
-        .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+        /* ── VIDEOS - 가로 슬라이드 ── */
+        .videos-section {
+            padding: 100px 0 100px 40px;
+            max-width: none;
+            overflow: hidden;
         }
 
+        .videos-header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-right: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* ★ 가로 슬라이드 컨테이너 */
+        .videos-slider-wrap {
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            cursor: grab;
+        }
+
+        .videos-slider-wrap::-webkit-scrollbar { display: none; }
+        .videos-slider-wrap:active { cursor: grabbing; }
+
+        .videos-slider {
+            display: flex;
+            gap: 20px;
+            padding-right: 40px;
+            width: max-content;
+        }
+
+        /* ★ 영상 카드 크기 조정 - 세로 영상 비율 */
         .video-card {
+            width: 200px;
+            flex-shrink: 0;
             background: var(--bg-card);
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
             border: 1px solid var(--border);
             box-shadow: 0 4px 20px var(--shadow);
@@ -427,13 +448,13 @@
         }
 
         .video-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(139, 46, 74, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(139, 46, 74, 0.15);
         }
 
         .video-wrapper {
             position: relative;
-            padding-bottom: 177.78%;
+            padding-bottom: 177.78%; /* 9:16 세로 비율 */
             height: 0;
             overflow: hidden;
         }
@@ -448,36 +469,70 @@
         }
 
         .video-info {
-            padding: 20px;
+            padding: 14px;
         }
 
         .video-platform {
-            font-size: 0.72rem;
-            letter-spacing: 0.15em;
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--rose-gold);
             font-weight: 600;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .video-title {
-            font-size: 0.92rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 6px;
-            line-height: 1.4;
+            margin-bottom: 4px;
+            line-height: 1.3;
         }
 
         .video-meta {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
         }
 
+        /* 슬라이드 힌트 인디케이터 */
+        .slider-hint {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 20px;
+            padding-left: 0;
+            max-width: 1100px;
+            padding: 16px 40px 0 0;
+        }
+
+        .slider-hint span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .slider-dot {
+            width: 20px;
+            height: 3px;
+            border-radius: 2px;
+            background: var(--border);
+        }
+
+        .slider-dot.active {
+            background: linear-gradient(90deg, var(--rose-gold), var(--burgundy));
+            width: 32px;
+        }
+
         /* ── CONTACT ── */
+        /* ★ 이전 버전 비율로 - 패딩 줄이고 compact하게 */
         .contact-wrapper {
             background: linear-gradient(135deg, var(--bg-secondary), #EDD8CC);
-            border-radius: 32px;
-            padding: 80px 60px;
+            border-radius: 28px;
+            padding: 52px 44px;
             max-width: 1100px;
             margin: 0 auto;
             border: 1px solid var(--border);
@@ -487,14 +542,15 @@
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin-top: 50px;
+            gap: 16px;
+            margin-top: 36px;
         }
 
+        /* ★ 카카오 카드 - 더 compact하게 */
         .contact-card {
             background: var(--bg-card);
-            border-radius: 20px;
-            padding: 36px 32px;
+            border-radius: 16px;
+            padding: 24px;
             border: 1px solid var(--border);
             box-shadow: 0 4px 20px var(--shadow);
             transition: all 0.3s;
@@ -504,8 +560,8 @@
         }
 
         .contact-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(139, 46, 74, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 32px rgba(139, 46, 74, 0.15);
             border-color: var(--rose-gold);
         }
 
@@ -513,61 +569,62 @@
             grid-column: 1 / -1;
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 20px;
             background: linear-gradient(135deg, #FEE500, #FFD700);
             border-color: #FEE500;
+            padding: 24px 28px;
         }
 
         .kakao-icon {
-            font-size: 3rem;
+            font-size: 2.2rem;
             flex-shrink: 0;
         }
 
         .kakao-text h3 {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 800;
             color: #3A1D1D;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .kakao-text p {
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             color: #5A3A3A;
+            line-height: 1.4;
         }
 
         .kakao-text .kakao-cta {
-            margin-top: 12px;
+            margin-top: 10px;
             display: inline-block;
-            padding: 8px 20px;
+            padding: 6px 16px;
             background: #3A1D1D;
             color: #FEE500;
             border-radius: 50px;
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            letter-spacing: 0.03em;
         }
 
         .contact-icon {
-            font-size: 2rem;
-            margin-bottom: 16px;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
         }
 
         .contact-card h3 {
-            font-size: 1rem;
+            font-size: 0.92rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .contact-card p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
             line-height: 1.5;
         }
 
-        .contact-card .contact-link {
-            margin-top: 12px;
-            font-size: 0.82rem;
+        .contact-link {
+            margin-top: 10px;
+            font-size: 0.78rem;
             color: var(--rose-gold);
             font-weight: 600;
         }
@@ -575,7 +632,7 @@
         /* ── FOOTER ── */
         footer {
             text-align: center;
-            padding: 48px 40px;
+            padding: 40px;
             border-top: 1px solid var(--border);
             color: var(--text-muted);
             font-size: 0.85rem;
@@ -614,12 +671,12 @@
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             header {
-                padding: 16px 20px;
+                padding: 12px 16px;
             }
 
             nav a {
-                margin-left: 16px;
-                font-size: 0.82rem;
+                margin-left: 12px;
+                font-size: 0.78rem;
             }
 
             section {
@@ -628,41 +685,61 @@
 
             .about-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 32px;
+            }
+
+            .about-image-placeholder {
+                max-width: 280px;
+                margin: 0 auto;
             }
 
             .numbers-section {
-                padding: 50px 24px;
+                padding: 40px 20px;
+                margin: 0 20px;
             }
 
             .numbers-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
+                gap: 12px;
             }
 
             .career-item {
                 grid-template-columns: 1fr;
-                gap: 8px;
+                gap: 6px;
+                padding: 20px;
             }
 
-            .videos-grid {
-                grid-template-columns: 1fr;
-                max-width: 360px;
-                margin: 0 auto;
+            .videos-section {
+                padding: 70px 0 70px 20px;
+            }
+
+            .videos-header {
+                padding-right: 20px;
+            }
+
+            .video-card {
+                width: 160px;
+            }
+
+            .videos-slider {
+                padding-right: 20px;
             }
 
             .contact-wrapper {
-                padding: 50px 24px;
+                padding: 36px 20px;
+                margin: 0 20px;
+                border-radius: 24px;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
+                gap: 12px;
             }
 
             .contact-card.kakao {
                 grid-column: 1;
-                flex-direction: column;
-                text-align: center;
+                flex-direction: row;
+                align-items: center;
             }
         }
     </style>
@@ -701,24 +778,13 @@
 <!-- ABOUT -->
 <section id="about" class="fade-in">
     <div class="about-grid">
-        <div class="about-image-placeholder">
-            📸
-        </div>
+        <div class="about-image-placeholder">📸</div>
         <div class="about-text">
             <div class="section-label">About Me</div>
             <h3>안녕하세요,<br>쇼호스트 <span style="background: linear-gradient(135deg, #C9956C, #8B2E4A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">홍길동</span>입니다</h3>
-            <p>
-                TV홈쇼핑과 라이브커머스를 넘나드는 
-                멀티 플랫폼 쇼호스트입니다.
-            </p>
-            <p>
-                단순한 상품 소개를 넘어, 브랜드의 가치를 
-                시청자에게 진심으로 전달하는 것을 가장 중요하게 생각합니다.
-            </p>
-            <p>
-                뷰티, 패션, 리빙, 식품까지 폭넓은 카테고리 경험을 바탕으로
-                각 브랜드에 최적화된 세일즈 커뮤니케이션을 제공합니다.
-            </p>
+            <p>TV홈쇼핑과 라이브커머스를 넘나드는 멀티 플랫폼 쇼호스트입니다.</p>
+            <p>단순한 상품 소개를 넘어, 브랜드의 가치를 시청자에게 진심으로 전달하는 것을 가장 중요하게 생각합니다.</p>
+            <p>뷰티, 패션, 리빙, 식품까지 폭넓은 카테고리 경험을 바탕으로 각 브랜드에 최적화된 세일즈 커뮤니케이션을 제공합니다.</p>
             <div class="tag-list">
                 <span class="tag">라이브커머스</span>
                 <span class="tag">TV홈쇼핑</span>
@@ -736,28 +802,26 @@
 <div class="section-divider"></div>
 
 <!-- NUMBERS -->
-<div class="numbers-section fade-in" id="numbers">
+<div class="numbers-section fade-in" id="numbers" style="padding: 60px 48px; margin: 100px 40px;">
     <div class="section-label">Numbers</div>
     <div class="section-title">숫자로 증명합니다</div>
-    <div class="section-desc">
-        실제 방송 데이터를 기반으로 한 검증된 성과입니다
-    </div>
+    <div class="section-desc">실제 방송 데이터를 기반으로 한 검증된 성과입니다</div>
     <div class="numbers-grid">
         <div class="number-card">
-            <div class="number-value">320<span style="font-size:1.6rem">%</span></div>
-            <div class="number-label">월 판매 목표 달성률<br><span style="color:#9A9A9A; font-size:0.78rem">2024년 최고 기록</span></div>
+            <div class="number-value">320<span style="font-size:1.4rem">%</span></div>
+            <div class="number-label">월 판매 목표 달성률<br><span style="color:#9A9A9A; font-size:0.75rem">2024년 최고 기록</span></div>
         </div>
         <div class="number-card">
-            <div class="number-value">15<span style="font-size:1.6rem">%+</span></div>
-            <div class="number-label">평균 구매전환율<br><span style="color:#9A9A9A; font-size:0.78rem">업계 평균 대비 2배</span></div>
+            <div class="number-value">15<span style="font-size:1.4rem">%+</span></div>
+            <div class="number-label">평균 구매전환율<br><span style="color:#9A9A9A; font-size:0.75rem">업계 평균 대비 2배</span></div>
         </div>
         <div class="number-card">
-            <div class="number-value">200<span style="font-size:1.6rem">+</span></div>
-            <div class="number-label">누적 방송 횟수<br><span style="color:#9A9A9A; font-size:0.78rem">TV · 라이브 통합</span></div>
+            <div class="number-value">200<span style="font-size:1.4rem">+</span></div>
+            <div class="number-label">누적 방송 횟수<br><span style="color:#9A9A9A; font-size:0.75rem">TV · 라이브 통합</span></div>
         </div>
         <div class="number-card">
-            <div class="number-value">50<span style="font-size:1.6rem">+</span></div>
-            <div class="number-label">협업 브랜드 수<br><span style="color:#9A9A9A; font-size:0.78rem">다양한 카테고리</span></div>
+            <div class="number-value">50<span style="font-size:1.4rem">+</span></div>
+            <div class="number-label">협업 브랜드 수<br><span style="color:#9A9A9A; font-size:0.75rem">다양한 카테고리</span></div>
         </div>
     </div>
 </div>
@@ -768,9 +832,7 @@
 <section id="career" class="fade-in">
     <div class="section-label">Career</div>
     <div class="section-title">경력 <span>히스토리</span></div>
-    <div class="section-desc">
-        다양한 플랫폼에서 쌓아온 실전 경험입니다
-    </div>
+    <div class="section-desc">다양한 플랫폼에서 쌓아온 실전 경험입니다</div>
     <div class="career-list">
         <div class="career-item">
             <div class="career-period">2022 — 현재</div>
@@ -801,95 +863,125 @@
 
 <div class="section-divider"></div>
 
-<!-- VIDEOS -->
-<section id="videos" class="fade-in">
-    <div class="section-label">Videos</div>
-    <div class="section-title">방송 <span>레퍼런스</span></div>
-    <div class="section-desc">
-        실제 방송에서 확인하는 진행 스타일과 세일즈 커뮤니케이션
+<!-- VIDEOS - 가로 슬라이드 -->
+<div class="videos-section fade-in" id="videos">
+    <div class="videos-header">
+        <div class="section-label">Videos</div>
+        <div class="section-title">방송 <span>레퍼런스</span></div>
+        <div class="section-desc">실제 방송에서 확인하는 진행 스타일과 세일즈 커뮤니케이션</div>
     </div>
-    <div class="videos-grid">
-        <div class="video-card">
-            <div class="video-wrapper">
-                <iframe
-                    src="https://www.youtube.com/embed/VIDEO_ID_1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
+
+    <div class="videos-slider-wrap" id="videoSlider">
+        <div class="videos-slider">
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_1"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <div class="video-platform">📺 네이버 쇼핑라이브</div>
+                    <div class="video-title">○○ 브랜드 뷰티 라이브</div>
+                    <div class="video-meta">조회수 XX만 · 판매액 XX억</div>
+                </div>
             </div>
-            <div class="video-info">
-                <div class="video-platform">📺 네이버 쇼핑라이브</div>
-                <div class="video-title">○○ 브랜드 뷰티 라이브</div>
-                <div class="video-meta">조회수 XX만 · 판매액 XX억</div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_2"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <div class="video-platform">📺 TV 홈쇼핑</div>
+                    <div class="video-title">○○ 브랜드 패션 방송</div>
+                    <div class="video-meta">방송 매출 XX억 달성</div>
+                </div>
             </div>
-        </div>
-        <div class="video-card">
-            <div class="video-wrapper">
-                <iframe
-                    src="https://www.youtube.com/embed/VIDEO_ID_2"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_3"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <div class="video-platform">🎤 브랜드 행사</div>
+                    <div class="video-title">○○ 브랜드 론칭 행사</div>
+                    <div class="video-meta">참석자 XX명 · ○○년 ○월</div>
+                </div>
             </div>
-            <div class="video-info">
-                <div class="video-platform">📺 TV 홈쇼핑</div>
-                <div class="video-title">○○ 브랜드 패션 방송</div>
-                <div class="video-meta">방송 매출 XX억 달성</div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_4"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <div class="video-platform">🛍️ 라이브커머스</div>
+                    <div class="video-title">○○ 브랜드 리빙 기획전</div>
+                    <div class="video-meta">시청자 XX만 · 완판 달성</div>
+                </div>
             </div>
-        </div>
-        <div class="video-card">
-            <div class="video-wrapper">
-                <iframe
-                    src="https://www.youtube.com/embed/VIDEO_ID_3"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="video-info">
-                <div class="video-platform">🎤 브랜드 행사</div>
-                <div class="video-title">○○ 브랜드 론칭 행사</div>
-                <div class="video-meta">참석자 XX명 · ○○년 ○월</div>
-            </div>
+
         </div>
     </div>
-</section>
+
+    <!-- 슬라이드 힌트 -->
+    <div class="slider-hint" style="padding-left: 40px;">
+        <div class="slider-dots">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+        </div>
+        <span>← 밀어서 더 보기</span>
+    </div>
+</div>
 
 <div class="section-divider"></div>
 
 <!-- CONTACT -->
-<div class="contact-wrapper fade-in" id="contact">
-    <div class="section-label">Contact</div>
-    <div class="section-title">함께 <span>만들어요</span></div>
-    <div class="section-desc">
-        방송 출연 · 브랜드 협업 · 행사 MC 문의를 기다립니다
-    </div>
-    <div class="contact-grid">
-        <a href="https://open.kakao.com/YOUR_LINK" target="_blank" class="contact-card kakao">
-            <div class="kakao-icon">💬</div>
-            <div class="kakao-text">
-                <h3>카카오톡 오픈채팅으로 빠르게 문의하세요</h3>
-                <p>협업 제안, 출연 문의, 견적 상담 — 가장 빠르게 답변 드립니다</p>
-                <span class="kakao-cta">카카오톡 오픈채팅 바로가기 →</span>
-            </div>
-        </a>
-        <a href="mailto:your@email.com" class="contact-card">
-            <div class="contact-icon">📧</div>
-            <h3>이메일</h3>
-            <p>공식 제안서, 계약 관련 문의는 이메일로 보내주세요</p>
-            <div class="contact-link">your@email.com →</div>
-        </a>
-        <a href="https://instagram.com/YOUR_ID" target="_blank" class="contact-card">
-            <div class="contact-icon">📸</div>
-            <h3>인스타그램</h3>
-            <p>일상과 방송 현장을 함께 공유해요</p>
-            <div class="contact-link">@instagram_id →</div>
-        </a>
-        <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" class="contact-card">
-            <div class="contact-icon">▶️</div>
-            <h3>유튜브 채널</h3>
-            <p>방송 하이라이트와 비하인드 영상을 확인하세요</p>
-            <div class="contact-link">유튜브 채널 바로가기 →</div>
-        </a>
+<div style="padding: 100px 40px;">
+    <div class="contact-wrapper fade-in" id="contact">
+        <div class="section-label">Contact</div>
+        <div class="section-title">함께 <span>만들어요</span></div>
+        <div class="section-desc">방송 출연 · 브랜드 협업 · 행사 MC 문의를 기다립니다</div>
+        <div class="contact-grid">
+
+            <a href="https://open.kakao.com/YOUR_LINK" target="_blank" class="contact-card kakao">
+                <div class="kakao-icon">💬</div>
+                <div class="kakao-text">
+                    <h3>카카오톡 오픈채팅으로 빠르게 문의하세요</h3>
+                    <p>협업 제안, 출연 문의, 견적 상담 — 가장 빠르게 답변 드립니다</p>
+                    <span class="kakao-cta">카카오톡 오픈채팅 바로가기 →</span>
+                </div>
+            </a>
+
+            <a href="mailto:your@email.com" class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>이메일</h3>
+                <p>공식 제안서, 계약 관련 문의는 이메일로 보내주세요</p>
+                <div class="contact-link">your@email.com →</div>
+            </a>
+
+            <a href="https://instagram.com/YOUR_ID" target="_blank" class="contact-card">
+                <div class="contact-icon">📸</div>
+                <h3>인스타그램</h3>
+                <p>일상과 방송 현장을 함께 공유해요</p>
+                <div class="contact-link">@instagram_id →</div>
+            </a>
+
+            <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" class="contact-card">
+                <div class="contact-icon">▶️</div>
+                <h3>유튜브 채널</h3>
+                <p>방송 하이라이트와 비하인드 영상을 확인하세요</p>
+                <div class="contact-link">유튜브 채널 바로가기 →</div>
+            </a>
+
+        </div>
     </div>
 </div>
 
@@ -900,18 +992,16 @@
 </footer>
 
 <script>
-    // Scroll Fade-in
+    // ── Scroll Fade-in ──
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Number Counter Animation
+    // ── Number Counter Animation ──
     function animateCounter(el, target, suffix = '') {
         let start = 0;
         const duration = 2000;
@@ -919,7 +1009,8 @@
             if (!start) start = timestamp;
             const progress = Math.min((timestamp - start) / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.floor(eased * target) + suffix;
+            const current = Math.floor(eased * target);
+            el.innerHTML = current + '<span style="font-size:1.4rem">' + suffix + '</span>';
             if (progress < 1) requestAnimationFrame(step);
         };
         requestAnimationFrame(step);
@@ -935,16 +1026,47 @@
                     { value: 200, suffix: '+' },
                     { value: 50, suffix: '+' }
                 ];
-                cards.forEach((card, i) => {
-                    animateCounter(card, data[i].value, data[i].suffix);
-                });
+                cards.forEach((card, i) => animateCounter(card, data[i].value, data[i].suffix));
                 numbersObserver.unobserve(entry.target);
             }
         });
     }, { threshold: 0.3 });
 
-    const numbersSection = document.querySelector('.numbers-grid');
-    if (numbersSection) numbersObserver.observe(numbersSection);
+    const numbersGrid = document.querySelector('.numbers-grid');
+    if (numbersGrid) numbersObserver.observe(numbersGrid);
+
+    // ── 슬라이더 드래그 스크롤 ──
+    const slider = document.getElementById('videoSlider');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => { isDown = false; });
+    slider.addEventListener('mouseup', () => { isDown = false; });
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // 슬라이더 dot 업데이트
+    const dots = document.querySelectorAll('.slider-dot');
+    slider.addEventListener('scroll', () => {
+        const cardWidth = 200 + 20;
+        const index = Math.round(slider.scrollLeft / cardWidth);
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+            dot.style.width = i === index ? '32px' : '20px';
+        });
+    });
 </script>
 
 </body>
