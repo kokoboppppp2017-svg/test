@@ -540,20 +540,20 @@
         .contact-header { text-align: center; margin-bottom: 36px; }
 
         .contact-wrap {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+}
         /* 큰 CTA 카카오 버튼 */
         .contact-cta {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             gap: 12px;
-            background: linear-gradient(135deg, #1c1428, #221835);
-            border: 1px solid rgba(124,92,252,0.2);
-            border-radius: var(--radius);
+            background: linear-gradient(135deg, #FDF6F0, #F5EDE6);
+border: 1px solid rgba(139, 46, 74, 0.15);
             padding: 24px;
         }
 
@@ -1052,8 +1052,8 @@ footer {
     <div class="container">
         <div class="contact-header">
             <div class="section-label">Contact</div>
-            <h2>함께 만들어요</h2>
-            <p class="section-sub">새로운 브랜드, 새로운 도전을 기다립니다.<br>편하신 방법으로 연락 주세요.</p>
+            <h2>함께 하실<br>브랜드를 기다립니다</h2>
+<p class="section-sub">편하신 방법으로 언제든 연락 주세요.</p>
         </div>
 
         <div class="contact-wrap">
