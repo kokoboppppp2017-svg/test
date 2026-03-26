@@ -838,7 +838,7 @@ footer {
 
         <div class="hero-text">
             <div class="hero-role">Show Host · Live Commerce</div>
-            <div class="hero-name">r</div>
+            <div class="hero-name">김쇼호</div>
             <p class="hero-tagline">
                 시청자를 구매자로 바꾸는<br>
                 한 마디를 압니다.
