@@ -10,7 +10,7 @@
         /* ===========================
            ROOT & RESET
         =========================== */
-       :root {
+      :root {
     --bg-primary: #FAFAF8;
     --bg-secondary: #F5F0EB;
     --bg-card: #FFFFFF;
@@ -19,9 +19,21 @@
     --text-muted: #9A9A9A;
     --rose-gold: #C9956C;
     --burgundy: #8B2E4A;
-    --accent: #D4A88A;
+    --accent: #C9956C;
     --border: #E8E0D8;
     --shadow: rgba(139, 46, 74, 0.08);
+
+    /* 아래가 핵심! 빠져있던 변수들 */
+    --bg: #FAFAF8;
+    --bg2: #F5F0EB;
+    --card: #FFFFFF;
+    --text: #1A1A1A;
+    --muted: #5A5A5A;
+    --muted2: #9A9A9A;
+    --accent2: #8B2E4A;
+    --kakao: #FEE500;
+    --radius: 16px;
+    --radius-sm: 10px;
 }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
