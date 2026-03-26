@@ -521,12 +521,19 @@
         .gallery-item:hover img { transform: scale(1.05); }
 
         /* 첫 번째 아이템을 크게 */
-   /* 첫 번째 아이템을 크게 */
+  /* 첫 번째 아이템을 크게 */
 .gallery-item:first-child {
     grid-column: 1 / -1;
     aspect-ratio: 4/3;
 }
 
+/* 마지막 아이템 모바일에서만 꽉 채우기 */
+@media (max-width: 768px) {
+    .gallery-item:last-child {
+        grid-column: 1 / -1;
+        aspect-ratio: 4/3;
+    }
+}
 /* 마지막 아이템 모바일에서 꽉 채우기 */
 .gallery-item:last-child {
     grid-column: 1 / -1;
