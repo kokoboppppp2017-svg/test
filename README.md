@@ -838,7 +838,7 @@ footer {
 
         <div class="hero-text">
             <div class="hero-role">Show Host · Live Commerce</div>
-            <div class="hero-name">OOO</div>
+            <div class="hero-name">r</div>
             <p class="hero-tagline">
                 시청자를 구매자로 바꾸는<br>
                 한 마디를 압니다.
@@ -916,14 +916,14 @@ footer {
                     <li>
                         <div class="career-year">2021 – 2023</div>
                         <div class="career-desc">
-                            <strong>OOO MCN 라이브 커머스팀</strong>
+                            <strong>김쇼호 MCN 라이브 커머스팀</strong>
                             <span>소속 호스트 · 콘텐츠 기획 참여</span>
                         </div>
                     </li>
                     <li>
                         <div class="career-year">2020 – 2021</div>
                         <div class="career-desc">
-                            <strong>OOO 쇼핑몰 자사 라이브</strong>
+                            <strong>김쇼호 쇼핑몰 자사 라이브</strong>
                             <span>라이브 커머스 진행 첫 데뷔</span>
                         </div>
                     </li>
@@ -1129,7 +1129,7 @@ footer {
 </main>
 
 <footer>
-    <p>© 2025 OOO. All rights reserved.</p>
+    <p>© 2025 김쇼호. All rights reserved.</p>
 </footer>
 
 </body>
