@@ -170,16 +170,16 @@
 
         /* 슬라이더 */
         .slider-wrap {
-            width: 200px;
-            aspect-ratio: 3/4;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 0 0 1px rgba(124,92,252,0.3),
-                        0 24px 60px rgba(0,0,0,0.5);
-            flex-shrink: 0;
-        }
-
+    width: 70%;
+    max-width: 300px;    /* 이 줄 추가 */
+    aspect-ratio: 3/4;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(124,92,252,0.3),
+                0 24px 60px rgba(0,0,0,0.5);
+    flex-shrink: 0;
+}
         .slider-track {
             display: flex;
             width: 200%;
@@ -218,7 +218,7 @@
             font-weight: 900;
             line-height: 1;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #fff 30%, var(--accent2));
+           background: linear-gradient(90deg, #8B2E4A 0%, #C9956C 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -744,10 +744,10 @@ footer {
             .hero-tagline { margin: 0 0 24px; }
 
             .slider-wrap {
-                width: 260px;
-                order: 2;
-            }
-
+    width: 260px;
+    order: 2;
+    max-width: none;
+}
             /* Stats PC */
             .stats-grid {
                 grid-template-columns: repeat(4, 1fr);
