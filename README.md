@@ -4,7 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>쇼호스트 김쇼호 | 포트폴리오</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-    <style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+<style>
 
         /* ===========================
            ROOT & RESET
@@ -222,6 +223,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 16px;
+            font-family: 'Noto Serif KR', serif;
         }
 
         .hero-tagline {
